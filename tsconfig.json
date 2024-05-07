@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "noUncheckedIndexedAccess": true,
+    "noEmit": true,
+    "strictPropertyInitialization": false,
+    "jsx": "react",
+    "esModuleInterop": true,
+    "lib": ["ES6", "DOM"]
+  }
+}
