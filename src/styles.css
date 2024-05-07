@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .toast {
+    --toast-height: auto;
+    --animation-duration: 3s;
+
+    @apply w-full p-3 bg-white border rounded ml-auto mt-2 max-w-xs;
+
+    animation-name: toastAnimation;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    animation-duration: var(--animation-duration);
+  }
+
+  @keyframes toastAnimation {
+    0% {
+      opacity: 0;
+      height: 0px;
+      transform: translateY(-50%);
+    }
+
+    10% {
+      opacity: 1;
+      transform: translateY(0%);
+      height: var(--toast-height);
+    }
+  }
+}

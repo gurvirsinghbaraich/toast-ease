@@ -6,6 +6,6 @@ export default defineConfig({
   external: ["react"],
   sourcemap: true,
   dts: true,
-  format: ["esm"],
+  format: ["esm", "cjs"],
   injectStyle: true,
 });

@@ -16,15 +16,7 @@ class Observable {
   }
 
   public constructor() {
-    this.toasts = [
-      {
-        id: nanoid(),
-        dismisable: false,
-        duration: Infinity,
-        indicator: ToastIndicator.info,
-        title: "Server",
-      },
-    ];
+    this.toasts = [];
     this.subscribers = [];
   }
 
@@ -62,7 +54,7 @@ class Observable {
     };
 
     // Adding the toast to the global state.
-    this.toasts.push(toastObject);
+    this.toasts = [toastObject, ...this.toasts];
 
     // Notifying the subscribers about the creation of the toast.
     this.subscribers.forEach((subscriber) => {

@@ -3,13 +3,17 @@
   "version": "0.0.1",
   "description": "An opinionated toast component.",
   "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "import": "./dist/index.mjs",
-  "require": "./dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
   "scripts": {
     "lint": "tsc",
-    "build": "tsup src/index.tsx src/toast.tsx src/server.ts",
-    "dev": "tsup src/index.tsx src/toast.tsx src/server.ts --watch",
+    "build": "tsup src/index.tsx",
+    "dev": "tsup src/index.tsx --watch",
     "dev:css": "tailwindcss -i ./src/styles.css -o ./src/tailwind.css --watch"
   },
   "repository": {
