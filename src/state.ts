@@ -40,7 +40,6 @@ class Observable {
     toast: Omit<Toast, ToastInternalProperties>,
     indicator: ToastIndicator
   ) {
-    console.log(toast);
     const { description, title } = toast;
 
     const toastObject: Toast = {

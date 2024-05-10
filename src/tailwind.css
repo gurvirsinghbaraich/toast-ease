@@ -555,12 +555,10 @@ video {
 }
 
 .\!toast {
-  --toast-height: auto !important;
   --animation-duration: 3s !important;
 }
 
 .toast {
-  --toast-height: auto;
   --animation-duration: 3s;
 }
 
@@ -605,14 +603,12 @@ video {
 @keyframes toastAnimation {
   0% {
     opacity: 0;
-    height: 0px;
-    transform: translateY(-50%);
+    max-height: 0.75rem;
   }
 
-  10% {
+  5% {
     opacity: 1;
-    transform: translateY(0%);
-    height: var(--toast-height);
+    max-height: 100px;
   }
 }
 

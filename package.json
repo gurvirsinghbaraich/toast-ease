@@ -8,12 +8,16 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
+    },
+    "./client": {
+      "types": "./dist/toast.d.ts",
+      "import": "./dist/toast.mjs",
+      "require": "./dist/toast.js"
     }
   },
   "scripts": {
     "lint": "tsc",
-    "build": "tsup src/index.tsx",
-    "dev": "tsup src/index.tsx --watch",
+    "build": "tsup src/index.tsx src/toast.tsx",
     "dev:css": "tailwindcss -i ./src/styles.css -o ./src/tailwind.css --watch"
   },
   "repository": {

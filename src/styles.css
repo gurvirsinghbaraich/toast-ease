@@ -4,7 +4,6 @@
 
 @layer components {
   .toast {
-    --toast-height: auto;
     --animation-duration: 3s;
 
     @apply w-full p-3 bg-white border rounded ml-auto mt-2 max-w-xs;
@@ -18,14 +17,12 @@
   @keyframes toastAnimation {
     0% {
       opacity: 0;
-      height: 0px;
-      transform: translateY(-50%);
+      max-height: 0.75rem;
     }
 
-    10% {
+    5% {
       opacity: 1;
-      transform: translateY(0%);
-      height: var(--toast-height);
+      max-height: 100px;
     }
   }
 }
