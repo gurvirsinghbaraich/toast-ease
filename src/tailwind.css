@@ -648,6 +648,10 @@ video {
   z-index: 999;
 }
 
+.contents {
+  display: contents;
+}
+
 .h-screen {
   height: 100vh;
 }
