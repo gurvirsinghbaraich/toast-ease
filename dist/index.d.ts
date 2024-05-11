@@ -1,6 +1,6 @@
 import React from 'react';
 export { t as toast } from './state-C7j7gv9i.js';
 
-declare const ToastBox: () => React.JSX.Element;
+declare const ServerToastRegister: () => React.JSX.Element;
 
-export { ToastBox };
+export { ServerToastRegister };

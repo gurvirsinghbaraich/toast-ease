@@ -39,14 +39,35 @@ type ToastBoxProps = {
 
 const ToastBox = function (props: Partial<ToastBoxProps>) {
   const { duration = TOAST_LIFESPAN, toastsVisible = TOASTS_VISIBLE } = props;
+  const windowObject =
+    typeof window != "undefined"
+      ? (window as Window & { toasts?: Toast[] })
+      : undefined;
 
-  const [toasts, setToasts] = useState<Toasts>(state.globalToasts);
+  const [toasts, setToasts] = useState<Toasts>([]);
   const [componentMounted, setComponentMounted] = useState<boolean>(false);
 
   // Once the component is loaded, marking the component has loaded.
   useEffect(function () {
     setComponentMounted(true);
   }, []);
+
+  // Loading the toasts that have been hydrated from server
+  useEffect(
+    function () {
+      if (!componentMounted) return;
+
+      // Loading the toasts from window
+      setToasts(
+        typeof windowObject != "undefined"
+          ? typeof windowObject.toasts != "undefined"
+            ? windowObject.toasts
+            : []
+          : []
+      );
+    },
+    [componentMounted]
+  );
 
   // Once the component has been loaded, subscribe to the changes in the state.
   useEffect(
@@ -64,8 +85,9 @@ const ToastBox = function (props: Partial<ToastBoxProps>) {
   // Setting up listeners to remove the toast, after a defined time interval.
   useEffect(
     function () {
+      console.log(toasts);
       toasts.forEach((toast) => {
-        if (toast.duration === Infinity && !toast.dismisable) {
+        if (toast.duration === Infinity || !toast.dismisable) {
           markToastDismisable(toast);
 
           setTimeout(() => {
